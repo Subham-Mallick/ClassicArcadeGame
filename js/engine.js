@@ -21,12 +21,26 @@ var Engine = (function(global) {
     var doc = global.document,
         win = global.window,
         canvas = doc.createElement('canvas'),
+        score = doc.createElement('button'),
+
         ctx = canvas.getContext('2d'),
+        //ctx2 = score.getContext('2d'),
         lastTime;
+
+
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+
+    score.setAttribute("id", "score");
+    score.width = 505;
+    score.setAttribute("style","color:red");
+    score.disabled = 'true';
+
+    doc.body.appendChild(score);
+    
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -119,7 +133,7 @@ var Engine = (function(global) {
             row, col;
         
         // Before drawing, clear existing canvas
-        ctx.clearRect(0,0,canvas.width,canvas.height)
+        //ctx.clearRect(0,0,canvas.width,canvas.height)
 
         /* Loop through the number of rows and columns we've defined above
          * and, using the rowImages array, draw the correct image for that
